@@ -1,0 +1,20 @@
+{
+	"TOKEN": "NDA0Mzc1NTc2ODQyMDc2MTYy.DjR6zw.x7VkEAJGJlAp12cBn-y71KwqwsI",
+	"PASTEBIN_KEY": "45b925f6f895630f5cbcd004b9aecb54",
+	"ROUTER_IP": "52.48.142.75",
+	"IMAGE_DB_MANAGER": "http://52.48.142.75/backend/imagedecoder.php",
+	"ROUTER_ID": "f842a30a-b9e4-4fcc-962d-46365520a9f2",
+	"MUSIC_DIR": "Music",
+	"OWNER": "123471451750793219",
+	"CO_OWNERS": [],
+	"QUOTER_URL": "http://52.48.142.75/backend/Quoter.php",
+	"QUOTER_KEY": "dashwood6741",
+	"MODULES": [
+		"com.gt22.pbbot.discord.DiscordCore"
+	],
+	"PRIVATE_KEY": "",
+	"PUBLIC_KEYS": {},
+	"DB_HOST": "localhost",
+	"DB_LOGIN": "web_backend",
+	"DB_PASS": "dashwood6741"
+}

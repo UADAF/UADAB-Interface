@@ -1,0 +1,4 @@
+node_modules
+package-lock.json
+app/styles/index.css.map
+app/styles/index.scss

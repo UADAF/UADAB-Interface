@@ -1,0 +1,295 @@
+body {
+  overflow: auto;
+  overflow-wrap: normal;
+  background-color: #000;
+  max-width: 100vw;
+  max-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif; }
+
+::-webkit-scrollbar {
+  display: none; }
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.status {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  .status .text {
+    width: calc(100% - 60px);
+    -webkit-app-region: drag;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 5px; }
+  .status .controls {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 60px;
+    height: 100%; }
+    .status .controls * {
+      width: 30px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1); }
+    .status .controls .close {
+      position: relative; }
+      .status .controls .close::before {
+        content: '';
+        left: 25%;
+        top: 50%;
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: #fff;
+        transform: rotate(45deg); }
+      .status .controls .close::after {
+        content: '';
+        left: 25%;
+        top: 50%;
+        position: absolute;
+        width: 50%;
+        height: 2px;
+        background-color: #fff;
+        transform: rotate(-45deg); }
+    .status .controls .minimize {
+      position: relative; }
+      .status .controls .minimize::before {
+        content: '';
+        left: 25%;
+        top: 50%;
+        position: absolute;
+        width: 40%;
+        height: 2px;
+        background-color: #fff; }
+
+.messages {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  padding: 2px 5px;
+  overflow: scroll;
+  position: relative; }
+  .messages .message {
+    min-height: fit-content;
+    position: relative;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    max-width: 90vw; }
+    .messages .message .text {
+      overflow-wrap: break-word;
+      color: black; }
+    .messages .message::before {
+      content: "";
+      position: absolute;
+      left: -20px;
+      top: 5px;
+      width: 0;
+      height: 0;
+      background-color: transparent;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid white;
+      border-left: 10px solid transparent; }
+    .messages .message.outcoming {
+      align-self: flex-end;
+      margin-left: 0;
+      margin-right: 15px; }
+      .messages .message.outcoming::before {
+        content: "";
+        position: absolute;
+        right: -20px;
+        left: auto;
+        top: 5px;
+        width: 0;
+        height: 0;
+        background-color: transparent;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-left: 10px solid white; }
+    .messages .message.info {
+      align-self: center; }
+      .messages .message.info::before {
+        display: none; }
+    .messages .message.status {
+      min-width: 200px;
+      display: flex;
+      flex-direction: column; }
+      .messages .message.status .info {
+        margin-left: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column; }
+        .messages .message.status .info img {
+          width: 100%;
+          height: 100%; }
+    .messages .message.user {
+      min-width: 200px;
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      position: relative; }
+      .messages .message.user .user-info .img {
+        position: relative;
+        width: 100%; }
+        .messages .message.user .user-info .img .discriminator {
+          position: absolute;
+          top: 2px;
+          left: 2px;
+          color: rgba(255, 255, 255, 0.4); }
+        .messages .message.user .user-info .img img {
+          width: 100%;
+          height: 100%; }
+      .messages .message.user .user-info div {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+      .messages .message.user .line {
+        margin: 5px 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 0.3); }
+      .messages .message.user .user-controls {
+        display: flex;
+        flex-direction: row;
+        min-height: 10px; }
+        .messages .message.user .user-controls div {
+          width: 100%;
+          background-color: rgba(0, 0, 0, 0.2);
+          padding: 5px;
+          border-radius: 5px;
+          text-align: center;
+          color: black;
+          transition: 0.1s; }
+          .messages .message.user .user-controls div:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white; }
+    .messages .message.dmessage {
+      display: flex;
+      flex-direction: row; }
+      .messages .message.dmessage img {
+        border-radius: 50%;
+        max-width: 50px;
+        max-height: 50px;
+        margin-right: 10px; }
+      .messages .message.dmessage .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: start; }
+        .messages .message.dmessage .info .author {
+          font-weight: bold; }
+          .messages .message.dmessage .info .author span {
+            color: rgba(0, 0, 0, 0.3); }
+        .messages .message.dmessage .info .id {
+          width: 100%;
+          text-align: right;
+          font-size: 0.8rem;
+          color: rgba(0, 0, 0, 0.3); }
+      .messages .message.dmessage .message-controls {
+        margin-top: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center; }
+        .messages .message.dmessage .message-controls div {
+          width: 100%;
+          text-align: center; }
+          .messages .message.dmessage .message-controls div:hover {
+            cursor: pointer;
+            text-decoration: underline; }
+
+.input {
+  position: relative;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  .input .cmd-input {
+    outline: none;
+    color: white;
+    position: relative;
+    width: calc(100% - 50px);
+    padding: 0 0 8px 20px;
+    margin: 0;
+    border: none;
+    background: transparent; }
+  .input .line {
+    height: 2px;
+    width: calc(100% - 78px);
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.4);
+    bottom: 5px;
+    left: 22px; }
+  .input .arrow {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px; }
+    .input .arrow::before {
+      content: '';
+      left: 25%;
+      top: 50%;
+      width: 50%;
+      height: 2px;
+      background-color: white;
+      position: absolute;
+      transform: rotate(45deg);
+      transform-origin: right; }
+    .input .arrow::after {
+      content: '';
+      left: 25%;
+      top: 50%;
+      width: 50%;
+      height: 2px;
+      background-color: white;
+      position: absolute;
+      transform: rotate(-45deg);
+      transform-origin: right; }
+  .input .cmd-send {
+    position: relative;
+    width: 50px;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    padding-bottom: 4px;
+    padding-right: 4px; }
+    .input .cmd-send::before {
+      content: '';
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: calc(100% - 8px);
+      height: calc(100% - 8px);
+      background-color: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 5px;
+      transition: 0.1s; }
+    .input .cmd-send:hover::before {
+      border: 2px solid rgba(255, 255, 255, 0.6); }
+    .input .cmd-send::after {
+      content: 'Send';
+      color: white; }
+    .input .cmd-send:active {
+      outline: none; }
+    .input .cmd-send:focus {
+      outline: none; }
+
+/*# sourceMappingURL=index.css.map */
