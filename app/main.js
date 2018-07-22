@@ -153,7 +153,7 @@ function createDMessage(type, dmessage) {
                 <div class="author">${dmessage["authorName"]}<span>#${dmessage["authorId"]}</span></div>
                 <div class="text">${dmessage["text"]}</div>
                 <div class="id">G:${dmessage["guild"]} C:${dmessage["channel"]}</div>
-                <div style="display: ${display}" class="message-controls"><div class="reply" onclick="$('#cmd-input').val('msg$${dmessage["guild"]}:${dmessage["channel"]}:'); $('#cmd-input').focus()">Reply</div><div class="remove">Remove</div>
+                <div style="display: ${display}" class="message-controls"><div onclick="$('#cmd-input').val('user$${dmessage["authorName"]}'); $('#cmd-input').focus(); $('.cmd-send').click()" class="monitor">Monitor</div><div class="reply" onclick="$('#cmd-input').val('msg$${dmessage["guild"]}:${dmessage["channel"]}:'); $('#cmd-input').focus()">Reply</div><div class="remove">Remove</div>
             </div>
         </div>
     `;
